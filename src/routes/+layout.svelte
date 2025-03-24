@@ -8,7 +8,9 @@
 	<Header />
 	<div class="flex-1">
 		<div class="mx-auto max-w-3xl py-8">
-			{@render children()}
+			<div class="relative">
+				{@render children()}
+			</div>
 		</div>
 	</div>
 </div>
