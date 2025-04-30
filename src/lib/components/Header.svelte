@@ -1,6 +1,6 @@
 <script lang="ts">
+	import { darkMode } from '$lib/stores';
 	import { Icon, Moon, Sun } from 'svelte-hero-icons';
-
 	interface RouteProps {
 		title: string;
 		url: string;
@@ -55,7 +55,12 @@
 	<div class="navbar-end">
 		<label class="flex cursor-pointer items-center gap-2">
 			<Icon src={Sun} size="16" />
-			<input type="checkbox" value="dim" class="toggle theme-controller" />
+			<input
+				type="checkbox"
+				value="dark"
+				class="toggle theme-controller"
+				bind:checked={$darkMode}
+			/>
 			<Icon src={Moon} size="16" />
 		</label>
 	</div>

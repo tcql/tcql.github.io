@@ -1,8 +1,7 @@
 <script lang="ts">
 	import CyclingText from '$lib/components/CyclingText.svelte';
-	import PixiTest from '$lib/components/PixiTest.svelte';
+	import PixiBoidsWrapper from '$lib/components/PixiBoidsWrapper.svelte';
 	import TextTooltipHighlight from '$lib/components/TextTooltipHighlight.svelte';
-	import { createRawSnippet } from 'svelte';
 	import { blur } from 'svelte/transition';
 
 	interface EmploymentArgs {
@@ -29,6 +28,17 @@
 		{/snippet}
 		{text}
 	</TextTooltipHighlight>
+{/snippet}
+
+{#snippet smallpipeList(list: string[])}
+	<p>
+		{#each list as item, idx}
+			{item}
+			{#if idx !== list.length - 1}
+				<span class="text-base-content/40">&nbsp;|&nbsp;</span>
+			{/if}
+		{/each}
+	</p>
 {/snippet}
 
 <div class="prose absolute w-full max-w-full" transition:blur>
@@ -99,13 +109,54 @@
 		)} analysis. I've done web app frontends, data warehousing, open-source tooling, APIs, and image
 		processing.
 	</p>
-	<div class="mb-6 h-86 w-full rounded-lg bg-gray-300 p-12">
-		<h3>todo: add some graphics/interactive in this box</h3>
-		<ul>
-			<li>somethin' with maps?</li>
-			<li>small canvas painter?</li>
-			<li>boids?</li>
-			<li>dragonsweeper-ish?</li>
-		</ul>
+
+	<div class="relative">
+		<PixiBoidsWrapper />
+		<div
+			class="absolute top-0 mx-auto flex h-full w-full flex-col items-stretch justify-center gap-4 px-8"
+		>
+			<div class="bg-base-300/90 rounded-box border-primary border-2 px-4 py-2 text-sm">
+				<strong>Languages</strong>
+				{@render smallpipeList([
+					'JavaScript, TypeScript, Node.JS',
+					'Python',
+					'SQL',
+					'HTML',
+					'CSS',
+					'PHP',
+					'Lua',
+					'C#, C++',
+					'Java',
+					'Go'
+				])}
+			</div>
+			<div class="bg-base-300/90 rounded-box border-secondary border-2 px-4 py-2 text-sm">
+				<strong>Web Frameworks & Tools</strong>
+				{@render smallpipeList([
+					'Svelte',
+					'Django',
+					'Tailwind, DaisyUI',
+					'MapboxGL',
+					'D3',
+					'Laravel',
+					'PIXI.js',
+					'React',
+					'Angular',
+					'Knockout'
+				])}
+			</div>
+			<div class="bg-base-300/90 rounded-box border-accent border-2 px-4 py-2 text-sm">
+				<strong>Software & Systems</strong>
+				{@render smallpipeList([
+					'AWS, CloudFormation',
+					'Postgres',
+					'Redis',
+					'Git',
+					'Airflow',
+					'Spark',
+					'GDAL'
+				])}
+			</div>
+		</div>
 	</div>
 </div>

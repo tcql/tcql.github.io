@@ -2,7 +2,7 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 @plugin "daisyui" {
-    themes: cmyk --default, dim --prefersdark;
+    themes: cmyk --default, dark --prefersdark;
 }
 
 
