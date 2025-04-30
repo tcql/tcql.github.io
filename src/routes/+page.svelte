@@ -52,7 +52,6 @@
 					'a software engineer',
 					'an artist',
 					'known to some as "tcql"',
-					'a Libra sun, Sagittarius moon, Cancer rising',
 					'open to work™',
 					'a Full-Stack / Generalist Engineer',
 					'making games'
